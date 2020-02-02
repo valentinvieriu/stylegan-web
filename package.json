@@ -7,19 +7,21 @@
 		"start": "python ./http_server.py",
 		"start3": "python3 ./http_server.py"
 	},
+	"dependencies": {
+		"stream": "^0.0.2",
+		"vue": "^2.6.8",
+		"face-api.js": "^0.22.0",
+		"gif.js.optimized": "^1.0.1",
+		"js-md5": "^0.7.3",
+		"jszip": "^3.2.2"
+	},
 	"devDependencies": {
 		"@rollup/plugin-alias": "^3.0.0",
 		"@rollup/plugin-commonjs": "^11.0.1",
 		"@rollup/plugin-node-resolve": "^7.0.0",
 		"@rollup/plugin-replace": "^2.3.0",
-		"face-api.js": "^0.22.0",
-		"gif.js.optimized": "^1.0.1",
-		"js-md5": "^0.7.3",
-		"jszip": "^3.2.2",
 		"rollup": "^1.6.0",
 		"rollup-plugin-vue": "^4.7.2",
-		"stream": "^0.0.2",
-		"vue": "^2.6.8",
 		"vue-template-compiler": "^2.6.8"
 	}
 }

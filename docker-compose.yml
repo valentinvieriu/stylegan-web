@@ -1,0 +1,25 @@
+version: "2.4"
+services:
+  stylegan2-web:
+    image: ${DOCKER_IMAGE:-eu.gcr.io/stylegan-258409/stylegan2-web}:${DOCKER_IMAGE_VERSION:-latest}
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    # user: ${LOCAL_USER:-1000:1000}
+    runtime: nvidia
+    volumes: 
+      - ".:/app/"
+    environment: 
+      HTTP_HOST: ${HTTP_HOST:-0.0.0.0}
+      HTTP_PORT: ${HTTP_PORT:- 9000}
+      MODEL_NAME: ${MODEL_NAME:- ffhq}
+      MODEL_PATH_LPIPS: ${MODEL_PATH_LPIPS:- ./models/vgg16_zhang_perceptual.pkl}
+      MODEL_PATH_ffhq: ${MODEL_PATH_ffhq:- ./models/stylegan2-ffhq-config-f.pkl}
+      REGULARIZE_NOISE_WEIGHT: ${REGULARIZE_NOISE_WEIGHT:- 1e5}
+      INITIAL_NOISE_FACTOR: ${INITIAL_NOISE_FACTOR:- 0.05}
+      EUCLIDEAN_DIST_WEIGHT: ${EUCLIDEAN_DIST_WEIGHT:- 1}
+      REGULARIZE_MAGNITUDE_WEIGHT: ${REGULARIZE_MAGNITUDE_WEIGHT:- 0}
+      UNIFORM_LATENTS: ${UNIFORM_LATENTS:- 0}
+    ports:
+      - "9000:9000"    
+    command: ["python3","./http_server.py"]

@@ -31,4 +31,7 @@ export default [
 		}),
 		vue(),
 	],
+	external: [
+		'fs'
+	]	
 }));

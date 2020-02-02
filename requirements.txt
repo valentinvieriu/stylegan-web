@@ -1,6 +1,6 @@
-tensorflow>=1.14.0
-python-dotenv>=0.10.1
+tensorflow-gpu==1.15.2
+python-dotenv==0.10.1
 Flask==1.1.1
-numpy>=1.8.0
-Pillow>=6.0.0
-requests>=2.21.0
+numpy==1.18.1
+Pillow==6.2.1
+requests==2.22.0
